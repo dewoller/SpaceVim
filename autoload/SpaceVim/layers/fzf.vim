@@ -45,13 +45,13 @@ function! SpaceVim#layers#fzf#config() abort
   call SpaceVim#mapping#space#def('nnoremap', ['j', 'i'], 'FzfOutline', 'jump to a definition in buffer', 1)
   nnoremap <silent> <C-p> :FzfFiles<cr>
   call SpaceVim#mapping#space#def('nnoremap', ['T', 's'], 'FzfColors', 'fuzzy find colorschemes', 1)
-  call SpaceVim#mapping#space#def('nnoremap', ['f', 'r'], 'FzfMru', 'open-recent-file', 1)
+  call SpaceVim#mapping#space#def('nnoremap', ['f', 'r'], 'Rg', 'Fuzzy Search', 1)
   let lnum = expand('<slnum>') + s:lnum - 1
   call SpaceVim#mapping#space#def('nnoremap', ['f', 'f'],
-        \ "exe 'FZF ' . fnamemodify(bufname('%'), ':h')",
-        \ ['Find files in the directory of the current buffer',
+        \ "exe 'FZF ' ",
+        \ ['Find files in the project',
         \ [
-        \ '[SPC f f] is to find files in the directory of the current buffer',
+        \ '[SPC f f] is to find files in the project',
         \ '',
         \ 'Definition: ' . s:filename . ':' . lnum,
         \ ]
